@@ -5,6 +5,7 @@ class Phrase{
    constructor(phrase){
       this.phrase = phrase.toLowerCase();
    }
+//converted to all lower case.
 /**
 * Display phrase on game board
 */
@@ -12,7 +13,6 @@ class Phrase{
         const ul = document.querySelector('#phrase ul');
         for(let i = 0; i < this.phrase.length; i++) {
             const Li = document.createElement('li');
-            
             Li.textContent = this.phrase[i];
             if(this.phrase[i] !==' '){
                 Li.className = `hide letter`;
@@ -35,9 +35,9 @@ class Phrase{
 * @param (string) letter - Letter to display
 */
     showMatchedLetter(letter) {
-        document.querySelectorAll(".letter").forEach((character) => {
-         if (character.textContent === letter) {
-           character.classList.replace("hide", "show");
+        document.querySelectorAll(".letter").forEach((keyboard) => {
+            if (keyboard.textContent === letter) {
+            keyboard.classList.replace("hide", "show")
             }
         });
     };

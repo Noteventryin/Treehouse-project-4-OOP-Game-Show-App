@@ -31,19 +31,15 @@ class Game{
     startgame.style.display = 'none';
     this.activePhrase = this.getRandomPhrase();
     this.activePhrase.addPhraseToDisplay();
-    
-};    
+    };    
     /**
 * Selects random phrase from phrases property
 * @return {Object} Phrase object chosen to be used
-*/
-    
+*/    
     getRandomPhrase(){
         let randomphrase = this.phrases[Math.floor(Math.random() * this.phrases.length)];
         return randomphrase;
     };
-
-
     
 /**
 * Handles onscreen keyboard button clicks
@@ -51,7 +47,6 @@ class Game{
 */
     handleInteraction(e) {
         e.disabled = true;
-        
         if (this.activePhrase.checkLetter(e.textContent)){
             e.classList.add("chosen");
             this.activePhrase.showMatchedLetter(e.textContent)
@@ -82,7 +77,7 @@ won
         this.missed += 1;
         if(this.missed === 5){
             this.gameOver();
-        }
+        }//if user chose 5 wrong letters , the gameOver() will be called.
     };
 /**
 * Displays game over message
@@ -100,7 +95,7 @@ won
            overlay.className = 'lose';
        }
        this.resetGame();
-       //call resetGame method to reset.
+       //call resetGame() method to reset.
     };
 
     resetGame(){
@@ -108,15 +103,15 @@ won
         const hearts = document.getElementsByClassName('tries');
         const phrase = document.getElementById('phrase');
         const key = document.querySelectorAll('.key');
-        
-        phrase.innerHTML = '';
+        //Remove all `li` elements from the Phrase `ul` element.Set it to empty string.
+        //Using .firstElementChild to make sure after reset the ('#phrase ul') won't be gone.
+        phrase.firstElementChild.innerHTML = '';
         for (let i = 0; i < key.length; i++) {
 			key[i].className = 'key';
 			key[i].disabled = false;
 		}
         for (let i = 0; i < hearts.length; i++) {
             hearts[i].firstElementChild.src = 'images/liveHeart.png';
-            hearts[i].firstElementChild.alt = "Heart Icon";
         }
         
     }
