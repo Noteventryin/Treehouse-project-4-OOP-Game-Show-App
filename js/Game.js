@@ -21,6 +21,18 @@ class Game{
                          new Phrase('you talking to me')];
         return phrases;
     };
+/**
+* Begins game by selecting a random phrase and displaying it to user
+* calls the `getRandomPhrase()` method and `addPhraseToDisplay()` method.
+*/
+    startGame(){
+    this.missed = 0;
+    const startgame = document.getElementById('overlay');
+    startgame.style.display = 'none';
+    this.activePhrase = this.getRandomPhrase();
+    this.activePhrase.addPhraseToDisplay();
+    
+};    
     /**
 * Selects random phrase from phrases property
 * @return {Object} Phrase object chosen to be used
@@ -31,17 +43,7 @@ class Game{
         return randomphrase;
     };
 
-/**
-* Begins game by selecting a random phrase and displaying it to user
-* calls the `getRandomPhrase()` method and `addPhraseToDisplay()` method.
-*/
-    startGame(){
-        this.missed = 0;
-        const startgame = document.getElementById('overlay');
-        startgame.style.display = 'none';
-        this.activePhrase = this.getRandomPhrase();
-        this.activePhrase.addPhraseToDisplay();
-    };
+
     
 /**
 * Handles onscreen keyboard button clicks
@@ -114,7 +116,7 @@ won
 		}
         for (let i = 0; i < hearts.length; i++) {
             hearts[i].firstElementChild.src = 'images/liveHeart.png';
-            //hearts[i].firstElementChild.alt = "Heart Icon";
+            hearts[i].firstElementChild.alt = "Heart Icon";
         }
         
     }

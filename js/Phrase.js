@@ -9,17 +9,19 @@ class Phrase{
 * Display phrase on game board
 */
     addPhraseToDisplay(){
-    for(let i = 0; i < this.phrase.length; i++) {
+        const ul = document.querySelector('#phrase ul');
+        for(let i = 0; i < this.phrase.length; i++) {
             const Li = document.createElement('li');
+            
             Li.textContent = this.phrase[i];
             if(this.phrase[i] !==' '){
                 Li.className = `hide letter`;
             } else {
                 Li.className = 'space';
             }
-            document.querySelector('#phrase ul').appendChild(Li);
+            ul.appendChild(Li);
     }
-
+       
 }
 /**
 * Checks if passed letter is in phrase
