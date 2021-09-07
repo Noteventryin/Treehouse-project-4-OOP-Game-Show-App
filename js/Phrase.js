@@ -11,10 +11,9 @@ class Phrase{
     addPhraseToDisplay(){
     for(let i = 0; i < this.phrase.length; i++) {
             const Li = document.createElement('li');
-            const letter = this.phrase[i];
-            Li.textContent = letter
+            Li.textContent = this.phrase[i];
             if(this.phrase[i] !==' '){
-                Li.className = `hide letter${letter}`;
+                Li.className = `hide letter`;
             } else {
                 Li.className = 'space';
             }
