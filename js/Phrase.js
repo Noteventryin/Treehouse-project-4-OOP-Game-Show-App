@@ -9,18 +9,19 @@ class Phrase{
 * Display phrase on game board
 */
     addPhraseToDisplay(){
-        for(let i = 0; i < this.phrase.length; i++) {
-                const Li = document.createElement('li');
-                Li.textContent = this.phrase[i];
-                if(this.phrase[i] !==' '){
-                    Li.className = `hide letter`;
-                } else {
-                    Li.className = 'space';
-                }
-                document.querySelector('#phrase ul').appendChild(Li);
-        }
-
+    for(let i = 0; i < this.phrase.length; i++) {
+            const Li = document.createElement('li');
+            const letter = this.phrase[i];
+            Li.textContent = letter
+            if(this.phrase[i] !==' '){
+                Li.className = `hide letter${letter}`;
+            } else {
+                Li.className = 'space';
+            }
+            document.querySelector('#phrase ul').appendChild(Li);
     }
+
+}
 /**
 * Checks if passed letter is in phrase
 * @param (string) letter - Letter to check
