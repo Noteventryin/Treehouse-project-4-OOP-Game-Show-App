@@ -86,7 +86,7 @@ won
     gameOver(gameWon) {
        const overmsg = document.getElementById('game-over-message');
        const overlay = document.getElementById('overlay');
-       overlay.style.display ='block';
+       overlay.style.display ='flex';
        if(gameWon == true){
            overmsg.innerHTML ="Congratulations! You have won the game!" 
            overlay.className = 'win';
